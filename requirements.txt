@@ -1,1 +1,5 @@
-discord.py==0.16.12
+discord.py
+asyncio
+datetime
+Token
+time
