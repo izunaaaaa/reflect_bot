@@ -9,20 +9,20 @@ Token = os.environ.get('BOT_TOKEN')
 
 bot = discord.Client()
 
-# @tasks.loop(seconds=1)
-# async def check_time():
-#     if (datetime.now().hour==13 and datetime.now().minute== 00 and datetime.now().second==00):
-#         channel = bot.get_channel(509635293175873538)
-#         await channel.send('지금 몇시냐?')
-#         time.sleep(200)
-#     elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==00):
-#         channel = bot.get_channel(509635293175873538)
-#         await channel.send('지금 몇시 몇분이냐?')
-#         time.sleep(30000)
-#     elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
-#         channel = bot.get_channel(509635293175873538)
-#         await channel.send('주연 생일 축하해')
-#         time.sleep(30000)
+@tasks.loop(seconds=1)
+async def check_time():
+    if (datetime.now().hour==13 and datetime.now().minute== 00 and datetime.now().second==00):
+        channel = bot.get_channel(509635293175873538)
+        await channel.send('지금 몇시냐?')
+        time.sleep(200)
+    elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==00):
+        channel = bot.get_channel(509635293175873538)
+        await channel.send('지금 몇시 몇분이냐?')
+        time.sleep(30000)
+    elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
+        channel = bot.get_channel(509635293175873538)
+        await channel.send('주연 생일 축하해')
+        time.sleep(30000)
 
 @bot.event
 async def on_ready():
@@ -33,7 +33,7 @@ async def on_ready():
     # 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
     # 이 기능을 이용하여 봇의 상태를 간단하게 출력 가능합니다.
     game = discord.Game("정이라고 하자")
-#     check_time.start()
+    check_time.start()
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
