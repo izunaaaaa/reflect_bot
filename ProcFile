@@ -1,1 +1,1 @@
-worker: python "봇 코드"
+worker: python bot.py

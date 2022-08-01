@@ -3,6 +3,9 @@ from to import Token
 import time
 from discord.ext import tasks
 from datetime import datetime
+import os
+
+TOKEN = os.environ.get('BOT_TOKEN')
 
 bot = discord.Client()
 
@@ -18,7 +21,7 @@ async def check_time():
         time.sleep(30000)
     elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
         channel = bot.get_channel(509635293175873538)
-        await channel.send('오늘 몇일이냐')
+        await channel.send('주연 생일 축하해')
         time.sleep(30000)
 
 @bot.event
