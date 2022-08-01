@@ -45,6 +45,7 @@ async def on_message(message):
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
+    print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
         await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
     elif ('너이준석' in msg or '너 이준석' in msg):
