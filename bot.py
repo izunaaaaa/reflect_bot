@@ -47,7 +47,7 @@ async def on_message(message):
     msg = message.content
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
-         await channel.send('그건 사랑이 아냐 그건 미련이 아냐 그냥')
+         await channel.send('/"그건 사랑이 아냐 그건 미련이 아냐 그냥/"')
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
