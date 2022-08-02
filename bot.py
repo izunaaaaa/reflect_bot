@@ -47,13 +47,13 @@ async def on_message(message):
     msg = message.content
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
-         await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
+         await channel.send('그건 사랑이 아냐 그건 미련이 아냐 그냥')
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
          await channel.send('얼빻') 
     elif ('김이라고하자' in msg):
-	       await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
+	       await channel.send('그냥 정이라고 하자')
     elif ('이준석아님' in msg ):
          await channel.send('나이스')
     elif (msg =='ㅇㅈ' or msg =='dw'):
@@ -68,6 +68,7 @@ async def on_message(message):
          embed.set_author(name="차단하지마",icon_url=message.author.avatar_url)
          await message.channel.send(embed=embed)
     return 
+
 
 @bot.event
 async def on_message_delete(message):
