@@ -14,15 +14,15 @@ async def check_time():
     if (datetime.now().hour==13 and datetime.now().minute== 00 and datetime.now().second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
-        time.sleep(200)
+
     elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시 몇분이냐?')
-        time.sleep(30000)
+
     elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
         channel = bot.get_channel(509635293175873538)
         await channel.send('주연 생일 축하해')
-        time.sleep(30000) 
+      
 
 @bot.event
 async def on_ready():
