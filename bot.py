@@ -5,7 +5,7 @@ from discord.ext import tasks
 from datetime import datetime
 import os
 
-Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.GEhjeM._avt8M91QiWbiRKpKBFHDv7vj8m18r5m-6ZJR4'
 
 bot = discord.Client()
 
@@ -48,6 +48,10 @@ async def on_message(message):
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('/"그건 사랑이 아냐 그건 미련이 아냐 그냥/"')
+    elif ('관악고' in msg):
+         await channel.send('나도 관악고 피해자임')
+    elif ('어그로' in msg or 'ㅇㄱㄹ' in msg):
+         await channel.send('중훈?')
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
