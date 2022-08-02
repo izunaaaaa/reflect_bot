@@ -47,7 +47,7 @@ async def on_message(message):
     msg = message.content
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
-        await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
+         await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석'):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
@@ -61,8 +61,8 @@ async def on_message(message):
     elif (('씨발' in msg  or '병신' in msg) and message.author.name == 'zghik5'):
          await channel.send("주연 욕하지마")
     elif ('김' in msg and message.author.name=='zghik5'):
-        msg = msg.replace('김', '\'정\'')
-        await channel.send(msg)
+         msg = msg.replace('김', '\'정\'')
+         await channel.send(msg)
     elif ('차단' in msg):
          embed=discord.Embed(title='차단하면 이준석', description='', color=0x00aaaa)
          embed.set_author(name="차단하지마",icon_url=message.author.avatar_url)
