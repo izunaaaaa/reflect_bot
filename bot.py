@@ -48,7 +48,7 @@ async def on_message(message):
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
-    elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석'):
+    elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
          await channel.send('얼빻') 
