@@ -22,7 +22,7 @@ async def check_time():
     elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
         channel = bot.get_channel(509635293175873538)
         await channel.send('주연 생일 축하해')
-        time.sleep(30000)
+        time.sleep(30000) 
 
 @bot.event
 async def on_ready():
@@ -48,10 +48,12 @@ async def on_message(message):
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
         await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
-    elif ('너이준석' in msg or '너 이준석' in msg):
-         await channel.send('?') 
+    elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석'):
+         await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
          await channel.send('얼빻') 
+    elif ('김이라고하자' in msg):
+	 await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
     elif ('이준석아님' in msg ):
          await channel.send('나이스')
     elif (msg =='ㅇㅈ' or msg =='dw'):
