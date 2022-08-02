@@ -5,7 +5,7 @@ from discord.ext import tasks
 from datetime import datetime
 import os
 
-Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.GEhjeM._avt8M91QiWbiRKpKBFHDv7vj8m18r5m-6ZJR4'
+Token = os.environ.get('BOT_TOKEN')
 
 bot = discord.Client()
 
