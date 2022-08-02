@@ -53,7 +53,7 @@ async def on_message(message):
     elif (msg[0]=='정' and len(msg) == 1):  
          await channel.send('얼빻') 
     elif ('김이라고하자' in msg):
-	 await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
+	       await channel.send('https://www.youtube.com/watch?v=DYrY1E4-9NI&ab_channel=H1GHRMUSIC')
     elif ('이준석아님' in msg ):
          await channel.send('나이스')
     elif (msg =='ㅇㅈ' or msg =='dw'):
