@@ -7,8 +7,9 @@ from datetime import datetime
 
 import os
 
-Token = os.environ.get('BOT_TOKEN')
-
+# Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.GQSdD4.Q9Y-2-Uctq275Ojlxpci3agTcfZO86r49iKp8o'
+#
 
 bot = discord.Client()
 
@@ -56,10 +57,12 @@ async def on_message(message):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
     elif ('몇일' in msg):
          await channel.send(datetime.strftime(current_time, '오늘은 %m월 %d일입니다.'))
-         if (current_time.day == 3):
+         if (current_time.day == 13):
            await channel.send("주연 생일 축하해")
-    elif ("몇분" in msg or "몇시몇분" in msg):
-         await channel.send('지금은 ' + datetime.strftime(current_time, '%H시 %M분') +"입니다")     
+    elif ("몇시몇분" in msg):
+         await channel.send('지금은 ' + datetime.strftime(current_time, '%H시 %M분') +"입니다")
+    elif ("몇분" in msg ):
+         await channel.send('지금은 ' + datetime.strftime(current_time, '%M분') +"입니다")             
     elif ('몇시' in msg):
          await channel.send('지금은 ' +str(current_time.hour) +"시입니다")
     elif ('관악고' in msg):
