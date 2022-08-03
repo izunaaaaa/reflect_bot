@@ -7,22 +7,25 @@ from datetime import datetime
 
 import os
 
-Token = os.environ.get('BOT_TOKEN')
+# Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.GQSdD4.Q9Y-2-Uctq275Ojlxpci3agTcfZO86r49iKp8o'
+#
 
 bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
-	print (datetime.now() + timedelta(hour=9)) 
-    if (datetime.now().hour + timedelta(hour=9) ==13 and datetime.now().minute== 0 and datetime.now().second==00):
+    current_time = datetime.now() + timedelta(hours=9)
+    print (current_time)
+    if (current_time.hour ==13 and current_time.minute== 0 and current_time.second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
-    elif (datetime.now().hour + timedelta(hour=9)==13 and datetime.now().minute==4 and datetime.now().second==30):
-        channel = bot.get_channel(1003532339672002562)
+    elif (current_time.hour ==13  and current_time.minute==4 and current_time.second==0):
+        channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시 몇분이냐?')
 
-    elif (datetime.now().hour + timedelta(hour=9)==00 and datetime.now().minute==0 and datetime.now().date==13):
-        channel = bot.get_channel(1003532339672002562)
+    elif (current_time.hour==00 and current_time.minute==0 and current_time.day==13):
+        channel = bot.get_channel(509635293175873538)
         await channel.send('주연 생일 축하해')
 
 
@@ -32,7 +35,7 @@ async def on_ready():
     print("logged in")  #화면에 봇의 아이디, 닉네임 출력
     print(bot.user.name)
     print("==============")
-    print (datetime.now() + timedelta(hour=9)) 
+    # print (datetime.now() + timedelta(hours=9)) 
     # 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
     # 이 기능을 이용하여 봇의 상태를 간단하게 출력 가능합니다.
     game = discord.Game("받아치기")
@@ -48,13 +51,18 @@ async def on_message(message):
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
+    current_time = datetime.now() + timedelta(hours=9)
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
+    elif ('몇일' in msg):
+         await channel.send(datetime.strftime(current_time, '오늘은 %m월 %d일입니다.'))
+         if (current_time.day == 3):
+           await channel.send("주연 생일 축하해")
     elif ("몇분" in msg or "몇시몇분" in msg):
-         await channel.send('지금은 ' + datetime.strftime(datetime.now()+timedelta(hour=9), '%H시 %M분') +"입니다")     
+         await channel.send('지금은 ' + datetime.strftime(current_time, '%H시 %M분') +"입니다")     
     elif ('몇시' in msg):
-         await channel.send('지금은 ' +str(datetime.now()+timedelta(hour=9).hour) +"시입니다")
+         await channel.send('지금은 ' +str(current_time.hour) +"시입니다")
     elif ('관악고' in msg):
          await channel.send('나도 관악고 피해자임')
     elif ('어그로' in msg or 'ㅇㄱㄹ' in msg):
