@@ -7,8 +7,7 @@ from datetime import datetime
 
 import os
 
-# Token = os.environ.get('BOT_TOKEN')
-Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.G5jlF2.lse4-Pm3kXdX5HZVJVm4B4bUZK254JTL0_AtG8'
+Token = os.environ.get('BOT_TOKEN')
 check = 0
 
 
