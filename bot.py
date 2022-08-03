@@ -7,11 +7,11 @@ import os
 
 Token = os.environ.get('BOT_TOKEN')
 
+
 bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
-    print (datetime.now())
     if (datetime.now().hour==13 and datetime.now().minute== 0 and datetime.now().second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
@@ -48,7 +48,11 @@ async def on_message(message):
     msg = message.content
     print (msg)
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
-         await channel.send('/"그건 사랑이 아냐 그건 미련이 아냐 그냥/"')
+         await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
+    elif ("몇분" in msg or "몇시몇분" in msg):
+         await channel.send('지금은 ' + datetime.strftime(datetime.now(), '%H시 %M분') +"입니다")     
+    elif ('몇시' in msg):
+         await channel.send('지금은 ' +str(datetime.now().hour) +"시입니다")
     elif ('관악고' in msg):
          await channel.send('나도 관악고 피해자임')
     elif ('어그로' in msg or 'ㅇㄱㄹ' in msg):
