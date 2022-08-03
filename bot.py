@@ -58,7 +58,7 @@ async def on_message(message):
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
-    current_time = datetime.now()# + timedelta(hours=9)
+    current_time = datetime.now() + timedelta(hours=9)
 
     print ("user : " + msg)
 
