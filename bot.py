@@ -7,7 +7,9 @@ from datetime import datetime
 
 import os
 
-Token = os.environ.get('BOT_TOKEN')
+# Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.G5jlF2.lse4-Pm3kXdX5HZVJVm4B4bUZK254JTL0_AtG8'
+check = 0
 
 
 
@@ -17,6 +19,7 @@ bot = discord.Client()
 async def check_time():
     current_time = datetime.now() + timedelta(hours=9)
     print (current_time)
+    global check
     if (current_time.hour ==13 and current_time.minute== 0 and current_time.second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
@@ -27,6 +30,8 @@ async def check_time():
     elif (current_time.hour==00 and current_time.minute==0 and current_time.day==13):
         channel = bot.get_channel(509635293175873538)
         await channel.send('주연 생일 축하해')
+    elif(current_time.hour==0 and current_time.minute==0):
+        check = 0
 
 
 @bot.event
@@ -48,11 +53,21 @@ async def on_message(message):
     # 받은 메시지의 author 가 bot 인 경우 return
     if message.author.bot:
         return None
+
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
-    current_time = datetime.now() + timedelta(hours=9)
+    current_time = datetime.now()# + timedelta(hours=9)
+
     print (msg)
+    print (current_time)
+    print (current_time.hour)
+
+    if (message.author.name == 'izuna' and current_time.hour > 8 ):
+         global check
+         if (check == 0):
+           await channel.send('주연 지금 일어났냐?')
+         check = 1
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
     elif ('몇일' in msg):
