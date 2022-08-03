@@ -51,6 +51,7 @@ async def on_ready():
 async def on_message(message):
     # 받은 메시지의 author 가 bot 인 경우 return
     if message.author.bot:
+	print ("bot : " + message.content)	
         return None
 
     # 답장할 채널은 메세지 받은 채널로 설정
@@ -58,7 +59,7 @@ async def on_message(message):
     msg = message.content
     current_time = datetime.now() + timedelta(hours=9)
 
-    print (msg)
+    print ("user : " + msg)
 
     if (message.author.name == 'zghik5' and current_time.hour > 8 ):
          global check
