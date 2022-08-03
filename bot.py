@@ -51,7 +51,7 @@ async def on_ready():
 async def on_message(message):
     # 받은 메시지의 author 가 bot 인 경우 return
     if message.author.bot:
-	      print ("bot : " + message.content)	
+	    print ("bot : " + message.content)	
         return None
 
     # 답장할 채널은 메세지 받은 채널로 설정
