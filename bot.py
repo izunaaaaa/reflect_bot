@@ -11,8 +11,9 @@ bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
-    if (datetime.now().hour==13 and datetime.now().minute== 33 and datetime.now().second==00):
-        channel = bot.get_channel(1003532339672002562)
+    print (datetime.now())
+    if (datetime.now().hour==13 and datetime.now().minute== 42 and datetime.now().second==00):
+        channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
 
     elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==00):
