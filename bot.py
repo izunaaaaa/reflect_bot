@@ -8,6 +8,7 @@ from datetime import datetime
 import os
 
 Token = os.environ.get('BOT_TOKEN')
+
 check = 0
 
 
@@ -51,17 +52,17 @@ async def on_ready():
 async def on_message(message):
     # 받은 메시지의 author 가 bot 인 경우 return
     if message.author.bot:
-	    print ("bot : " + message.content)	
+        print ("bot : " + message.content)
         return None
 
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
-    current_time = datetime.now() + timedelta(hours=9)
+    current_time = datetime.now()# + timedelta(hours=9)
 
     print ("user : " + msg)
 
-    if (message.author.name == 'zghik5' and current_time.hour > 8 ):
+    if (message.author.name == 'izuna' and current_time.hour > 8 ):
          global check
          if (check == 0):
            await channel.send('주연 지금 일어났냐?')
