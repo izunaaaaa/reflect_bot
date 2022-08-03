@@ -56,13 +56,11 @@ async def on_message(message):
     # 답장할 채널은 메세지 받은 채널로 설정
     channel = message.channel
     msg = message.content
-    current_time = datetime.now()# + timedelta(hours=9)
+    current_time = datetime.now() + timedelta(hours=9)
 
     print (msg)
-    print (current_time)
-    print (current_time.hour)
 
-    if (message.author.name == 'izuna' and current_time.hour > 8 ):
+    if (message.author.name == 'zghik5' and current_time.hour > 8 ):
          global check
          if (check == 0):
            await channel.send('주연 지금 일어났냐?')
