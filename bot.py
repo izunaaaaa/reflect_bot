@@ -62,7 +62,7 @@ async def on_message(message):
 
     print ("user : " + msg)
 
-    if (message.author.name == 'izuna' and current_time.hour > 8 ):
+    if (message.author.name == 'zghik5' and current_time.hour > 8 ):
          global check
          if (check == 0):
            await channel.send('주연 지금 일어났냐?')
