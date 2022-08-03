@@ -5,25 +5,24 @@ from discord.ext import tasks
 from datetime import datetime
 import os
 
-Token = os.environ.get('BOT_TOKEN')
+# Token = os.environ.get('BOT_TOKEN')
 
 bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
     print (datetime.now())
-    if (datetime.now().hour==13 and datetime.now().minute== 42 and datetime.now().second==00):
+    if (datetime.now().hour==13 and datetime.now().minute== 0 and datetime.now().second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
-
-    elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==00):
-        channel = bot.get_channel(509635293175873538)
+    elif (datetime.now().hour==13 and datetime.now().minute==4 and datetime.now().second==30):
+        channel = bot.get_channel(1003532339672002562)
         await channel.send('지금 몇시 몇분이냐?')
 
     elif (datetime.now().hour==00 and datetime.now().minute==0 and datetime.now().date==13):
-        channel = bot.get_channel(509635293175873538)
+        channel = bot.get_channel(1003532339672002562)
         await channel.send('주연 생일 축하해')
-      
+
 
 @bot.event
 async def on_ready():
@@ -31,6 +30,7 @@ async def on_ready():
     print("logged in")  #화면에 봇의 아이디, 닉네임 출력
     print(bot.user.name)
     print("==============")
+    print (datetime.now())
     # 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
     # 이 기능을 이용하여 봇의 상태를 간단하게 출력 가능합니다.
     game = discord.Game("받아치기")
