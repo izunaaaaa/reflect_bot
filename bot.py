@@ -8,7 +8,6 @@ from datetime import datetime
 import os
 
 Token = os.environ.get('BOT_TOKEN')
-Token = 'MTAwMzUzMTM0MzM5ODk3NzU2Ng.GZatbz.yOpGamJVm3FgVoUmlN3siQ_LMw5lUmkbwAw9Ys'
 
 bot = discord.Client()
 
