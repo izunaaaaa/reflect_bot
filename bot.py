@@ -9,6 +9,8 @@ import os
 
 Token = os.environ.get('BOT_TOKEN')
 
+chat_list = []
+
 check = 0
 
 
@@ -20,6 +22,7 @@ async def check_time():
     current_time = datetime.now() + timedelta(hours=9)
     print (current_time)
     global check
+    global chat_list
     if (current_time.hour ==13 and current_time.minute== 0 and current_time.second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
@@ -32,6 +35,7 @@ async def check_time():
         await channel.send('주연 생일 축하해')
     if(current_time.hour==0 and current_time.minute==0):
         check = 0
+        chat_list = []
 
 
 @bot.event
@@ -61,6 +65,9 @@ async def on_message(message):
     current_time = datetime.now() + timedelta(hours=9)
 
     print ("user : " + msg)
+    if (message.author.name == 'zghik5'):
+        global chat_list
+        chat_list.append(msg)
 
     if (message.author.name == 'zghik5' and current_time.hour > 8 ):
          global check
@@ -69,6 +76,8 @@ async def on_message(message):
          check = 1
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
+    elif ('주연이의 하루 기록' == msg):
+         await channel.send(chat_list)
     elif ('몇일' in msg):
          await channel.send(datetime.strftime(current_time, '오늘은 %m월 %d일입니다.'))
          if (current_time.day == 13):
@@ -93,7 +102,7 @@ async def on_message(message):
          await channel.send('나이스')
     elif (msg =='ㅇㅈ' or msg =='dw'):
          await channel.send('ㅇㅈ')
-    elif (('씨발' in msg  or '병신' in msg) and message.author.name == 'zghik5'):
+    elif (('씨발' in msg  or '병신' in msg or '시발' in msg) and message.author.name == 'zghik5'):
          await channel.send("주연 욕하지마")
     elif ('김' in msg and message.author.name=='zghik5'):
          msg = msg.replace('김', '\'정\'')
