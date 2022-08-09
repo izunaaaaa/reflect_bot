@@ -10,7 +10,6 @@ import os
 Token = os.environ.get('BOT_TOKEN')
 
 chat_list = []
-
 check = 0
 
 
@@ -82,6 +81,8 @@ async def on_message(message):
          await channel.send(datetime.strftime(current_time, '오늘은 %m월 %d일입니다.'))
          if (current_time.day == 13):
            await channel.send("주연 생일 축하해")
+    elif ('중훈?' in msg or "신중훈" in msg):
+         await channel.send("어그로;;")
     elif ("몇시몇분" in msg):
          await channel.send('지금은 ' + datetime.strftime(current_time, '%H시 %M분') +"입니다")
     elif ("몇분" in msg ):
