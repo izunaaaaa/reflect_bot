@@ -29,7 +29,7 @@ async def check_time():
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시 몇분이냐?')
 
-    if (current_time.hour==00 and current_time.minute==0 and current_time.day==13):
+    if (current_time.hour==00 and current_time.minute==0 and current_time.day==13 and current_time.second == 01):
         channel = bot.get_channel(509635293175873538)
         await channel.send('주연 생일 축하해')
     if(current_time.hour==0 and current_time.minute==0):
