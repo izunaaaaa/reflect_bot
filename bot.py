@@ -96,7 +96,7 @@ async def on_message(message):
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
     elif (msg[0]=='정' and len(msg) == 1):  
-         await channel.send('얼빻') 
+         await channel.send('중궈')
     elif ('김이라고하자' in msg):
 	       await channel.send('그냥 정이라고 하자')
     elif ('이준석아님' in msg ):
