@@ -74,7 +74,7 @@ async def on_message(message):
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
     elif('전역일' in msg):
-        now = datetime.now()
+        now = datetime.now()  + timedelta(hours=9) 
         date_compare = datetime.strptime("20230531","%Y%m%d")
         date_diff = date_compare - now
         await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.")
