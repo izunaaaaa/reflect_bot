@@ -7,7 +7,7 @@ from datetime import datetime
 
 import os
 
-Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwNjM1NDIyMTkxNTk2MzM5Mw.GnwRI6.5fRnupyFs-4fNddomS0hkAQaGAbjwJMsukLdPs'
 
 
 chat_list = []
@@ -73,11 +73,14 @@ async def on_message(message):
          check = 1
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
-    elif('전역일' in msg):
-        now = datetime.now()  + timedelta(hours=9) 
+    elif('전역' in msg):
+        now = datetime.now()
         date_compare = datetime.strptime("20230531","%Y%m%d")
         date_diff = date_compare - now
-        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.")
+        hour = date_diff.seconds // 3600 + date_diff.days * 24
+        min = date_diff.seconds // 60 + date_diff.days * 1440
+        sec = date_diff.seconds + date_diff.days * 86400
+        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.\n\t\t\t\t\t\t\t\t\t\t\t {date_diff.days}일, {hour:,} 시간, {min:,} 분, {sec:,} 초 남았습니다.")
     elif ('주연이의 하루 기록' == msg):
          await channel.send(chat_list)
     elif ('몇일' in msg):
