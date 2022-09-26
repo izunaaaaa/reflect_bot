@@ -9,6 +9,7 @@ import os
 
 Token = os.environ.get('BOT_TOKEN')
 
+
 chat_list = []
 check = 0
 
@@ -40,12 +41,9 @@ async def check_time():
 @bot.event
 async def on_ready():
     print("==============")
-    print("logged in")  #화면에 봇의 아이디, 닉네임 출력
+    print("logged in")  
     print(bot.user.name)
     print("==============")
-    # print (datetime.now() + timedelta(hours=9)) 
-    # 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
-    # 이 기능을 이용하여 봇의 상태를 간단하게 출력 가능합니다.
     game = discord.Game("받아치기")
     check_time.start()
     await bot.change_presence(status=discord.Status.online, activity=game)
@@ -75,6 +73,11 @@ async def on_message(message):
          check = 1
     if ('정이라고하자' in msg or '정이라고 하자' in msg):
          await channel.send('\"그건 사랑이 아냐 그건 미련이 아냐 그냥\"')
+    elif('전역일' in msg):
+        now = datetime.now()
+        date_compare = datetime.strptime("20230531","%Y%m%d")
+        date_diff = date_compare - now
+        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.")
     elif ('주연이의 하루 기록' == msg):
          await channel.send(chat_list)
     elif ('몇일' in msg):
@@ -135,6 +138,3 @@ async def on_message_edit(before, after):
 
         
 bot.run(Token) #토큰
-
-
-
