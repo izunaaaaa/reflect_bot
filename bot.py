@@ -7,8 +7,7 @@ from datetime import datetime
 
 import os
 
-
-Token = os.environ.get('BOT_TOKEN')
+Token = 'MTAwNjM1NDIyMTkxNTk2MzM5Mw.GnwRI6.5fRnupyFs-4fNddomS0hkAQaGAbjwJMsukLdPs'
 
 
 chat_list = []
@@ -24,6 +23,10 @@ async def check_time():
     print (current_time)
     global check
     global chat_list
+    if(current_time.hour == 23 and current_time.minute == 59 and current_time.second==00):
+        channel = bot.get_channel(509635293175873538)
+        await channel.send('주연이의 하루 기록')
+        await channel.send(chat_list)
     if (current_time.hour ==13 and current_time.minute== 0 and current_time.second==00):
         channel = bot.get_channel(509635293175873538)
         await channel.send('지금 몇시냐?')
@@ -81,7 +84,7 @@ async def on_message(message):
         hour = date_diff.seconds // 3600 + date_diff.days * 24
         min = date_diff.seconds // 60 + date_diff.days * 1440
         sec = date_diff.seconds + date_diff.days * 86400
-        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.\n\t\t\t\t\t\t\t\t\t\t\t 정확히 {date_diff.days}일, {hour:,} 시간, {min:,} 분, {sec:,} 초 남았습니다.")
+        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.\n\t\t\t\t\t\t\t\t\t\t\t {date_diff.days}일, {hour:,} 시간, {min:,} 분, {sec:,} 초 남았습니다.")
     elif ('주연이의 하루 기록' == msg):
          await channel.send(chat_list)
     elif ('몇일' in msg):
