@@ -7,7 +7,8 @@ from datetime import datetime
 
 import os
 
-Token = 'MTAwNjM1NDIyMTkxNTk2MzM5Mw.GnwRI6.5fRnupyFs-4fNddomS0hkAQaGAbjwJMsukLdPs'
+
+Token = os.environ.get('BOT_TOKEN')
 
 
 chat_list = []
