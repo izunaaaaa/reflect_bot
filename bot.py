@@ -84,7 +84,7 @@ async def on_message(message):
         hour = date_diff.seconds // 3600 + date_diff.days * 24
         min = date_diff.seconds // 60 + date_diff.days * 1440
         sec = date_diff.seconds + date_diff.days * 86400
-        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff} 남았습니다.\n\t\t\t\t\t\t\t\t\t\t\t 정확히 {date_diff.days}일, {hour:,} 시간, {min:,} 분, {sec:,} 초 남았습니다.")
+        await channel.send(f"남궁하사 전역일까지 앞으로 {date_diff}.\n\t\t\t\t\t\t\t\t\t\t\t 정확히 {date_diff.days}일, {hour:,} 시간, {min:,} 분, {sec:,} 초.")
     elif ('주연이의 하루 기록' == msg):
          await channel.send(chat_list)
     elif ('몇일' in msg):
