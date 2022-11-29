@@ -1,7 +1,4 @@
 import discord
-
-bot = discord.Client()
-
 # from to import Token
 import time
 from discord.ext import tasks
@@ -17,7 +14,7 @@ Token = os.environ.get('BOT_TOKEN')
 chat_list = []
 check = 0
 
-
+bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
