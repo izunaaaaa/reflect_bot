@@ -4,6 +4,7 @@ import time
 from discord.ext import tasks
 from datetime import timedelta
 from datetime import datetime
+import re
 
 import os
 
@@ -66,6 +67,22 @@ async def on_message(message):
     current_time = datetime.now() + timedelta(hours=9)
 
     print ("user : " + msg)
+
+    if (m := re.match(r"^<a?:[\w]+:([\d]+)>$", message.content)):
+        if message.content.startswith("<a:"):
+            ext = "gif"
+        else:
+            ext = "png"
+            
+        embed = discord.Embed(color=message.author.color)
+        embed.set_author(name=message.author.display_name, icon_url=message.author.avatar_url)
+        embed.set_image(url=f"https://cdn.discordapp.com/emojis/{m.group(1)}.{ext}")
+        emoji_msg = await message.channel.send(embed=embed)
+        await emoji_msg.add_reaction(msg)
+        await message.delete()
+
+
+
     if (message.author.name == 'zghik5'):
         global chat_list
         chat_list.append(msg)
