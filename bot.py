@@ -125,7 +125,7 @@ async def on_message(message):
     elif (msg[0]=='정' and len(msg) == 1):  
          await channel.send('중궈')
     elif ('김이라고하자' in msg):
-	       await channel.send('그냥 정이라고 하자')
+         await channel.send('그냥 정이라고 하자')
     elif ('이준석아님' in msg ):
          await channel.send('나이스')
     elif (msg =='ㅇㅈ' or msg =='dw'):
