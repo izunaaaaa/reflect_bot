@@ -1,4 +1,7 @@
 import discord
+
+bot = discord.Client()
+
 # from to import Token
 import time
 from discord.ext import tasks
@@ -15,8 +18,6 @@ chat_list = []
 check = 0
 
 
-
-bot = discord.Client()
 
 @tasks.loop(seconds=1)
 async def check_time():
@@ -122,7 +123,7 @@ async def on_message(message):
          await channel.send('중훈?')
     elif ('너이준석' in msg or '너 이준석' in msg or '면 이준석' in msg or '면이준석' in msg):
          await channel.send('??????????') 
-    elif (msg[0]=='정' and len(msg) == 1):  
+    elif (msg=='정'):  
          await channel.send('중궈')
     elif ('김이라고하자' in msg):
          await channel.send('그냥 정이라고 하자')
